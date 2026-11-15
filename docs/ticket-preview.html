@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ejemplo ficticio de ticket — Colegio San Miguel</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { background: #eef1f5; color: #151515; font: 13px/1.4 Arial, sans-serif; margin: 0; padding: 24px; }
+    .ticket { background: white; width: 80mm; padding: 4mm; margin: auto; box-shadow: 0 5px 24px #0002; }
+    h1 { font-size: 16px; margin: 0; text-align: center; }
+    .muted, .center { text-align: center; }
+    .muted { color: #555; }
+    .dash { border-top: 1px dashed #777; margin: 10px 0; }
+    .row { display: flex; justify-content: space-between; gap: 6px; }
+    .row span:last-child { white-space: nowrap; }
+    .lineitem { padding: 6px 0; }
+    .total { font-weight: bold; font-size: 16px; }
+    .actions { margin: 0 auto 12px; width: 80mm; text-align: center; }
+    button { background: #174da5; border: 0; border-radius: 6px; color: white; padding: 10px 16px; font: inherit; cursor: pointer; }
+    @page { size: 80mm auto; margin: 0; }
+    @media print { html, body { width: 80mm; margin: 0; padding: 0; background: white; } .ticket { padding: 3mm; width: 80mm; box-shadow: none; } .actions { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="actions"><button onclick="window.print()">Imprimir vista de ejemplo</button></div>
+  <article class="ticket" aria-label="Ejemplo de ticket de compra">
+    <h1>Colegio San Miguel</h1>
+    <p class="center muted">Ticket comercial · Datos ficticios</p>
+    <div class="dash"></div>
+    <div class="row"><span>Folio:</span><strong>CSM-00000017</strong></div>
+    <div class="row"><span>Fecha:</span><span>09/11/2026 12:30</span></div>
+    <div class="dash"></div>
+    <div class="lineitem"><strong>Playera polo escolar</strong><div>Talla 10 · Blanco</div><div class="row"><span>2 × $280.00</span><span>$560.00</span></div></div>
+    <div class="lineitem"><strong>Playera polo escolar</strong><div>Talla 8 · Blanco</div><div class="row"><span>1 × $250.00</span><span>$250.00</span></div></div>
+    <div class="dash"></div>
+    <div class="row"><span>Subtotal</span><span>$810.00</span></div>
+    <div class="row total"><span>TOTAL MXN</span><span>$810.00</span></div>
+    <div class="row"><span>Efectivo</span><span>$1,000.00</span></div>
+    <div class="row"><span>Cambio</span><span>$190.00</span></div>
+    <div class="dash"></div>
+    <p class="center">¡Gracias por su compra!</p>
+    <p class="center muted">Comprobante no fiscal</p>
+    <p class="center muted">VISTA DE EJEMPLO · NO ES VENTA REAL</p>
+  </article>
+</body>
+</html>

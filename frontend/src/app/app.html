@@ -1,0 +1,54 @@
+<div class="pos-app-layout">
+  <!-- Top Bar Navigation -->
+  <header class="pos-header">
+    <div class="header-brand">
+      <div class="brand-logo">CSM</div>
+      <div class="brand-info">
+        <h1 class="brand-title">Colegio San Miguel</h1>
+        <span class="brand-tag">Punto de Venta e Inventario</span>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="pos-nav" aria-label="Navegación principal">
+      <a routerLink="/pos" routerLinkActive="active" class="nav-tab">
+        <span class="tab-icon">🛒</span>
+        <span class="tab-label">Punto de venta</span>
+      </a>
+      <a routerLink="/articulos" routerLinkActive="active" class="nav-tab">
+        <span class="tab-icon">👕</span>
+        <span class="tab-label">Artículos</span>
+      </a>
+      <a routerLink="/inventario" routerLinkActive="active" class="nav-tab">
+        <span class="tab-icon">📦</span>
+        <span class="tab-label">Inventario</span>
+      </a>
+      <a routerLink="/ventas" routerLinkActive="active" class="nav-tab">
+        <span class="tab-icon">📊</span>
+        <span class="tab-label">Ventas</span>
+      </a>
+    </nav>
+
+    <!-- System Health Indicator -->
+    <div class="system-status">
+      @if (isCheckingHealth()) {
+        <span class="status-badge checking">
+          <span class="dot pulse"></span> Comprobando API...
+        </span>
+      } @else if (health()?.status === 'healthy') {
+        <span class="status-badge online" title="Backend y Base de datos conectados">
+          <span class="dot"></span> Sistema Online
+        </span>
+      } @else {
+        <button class="status-badge offline" (click)="checkHealth()" title="Click para reintentar conexión">
+          <span class="dot"></span> Sin conexión DB ↻
+        </button>
+      }
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="pos-main">
+    <router-outlet></router-outlet>
+  </main>
+</div>
